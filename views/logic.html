@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% if title %}{{title}}{% endif %}</title>
+</head>
+<body>
+  {% if title %}
+    <h1>{{title}}</h1>
+  {% endif %}
+  <ul>
+    {% for num in numberArray | reverse %}
+      {% if num % 2 === 0 %}
+        <li>{{ num }} - {{loop.index}}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</body>
+</html>
