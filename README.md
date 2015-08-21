@@ -2,12 +2,12 @@
 
 **Let's look at the basics of [Swig](http://paularmstrong.github.io/swig/), "a simple, powerful, and extendable JavaScript Template Engine" for NodeJS.**
 
-ADD IMAGE
+<hr>
 
-First off, a templating engine creates web pages (or views) dynamically by combining variables and programming logic with HTML. Essentially, you can add placeholders (or tags) to your HTML that are replaced by *actual* code defined from your controller. In general, tags, for the majority of templating engines,  fall within one of two categores-
+First off, a templating engine creates web pages (or views) dynamically by combining variables and programming logic with HTML. Essentially, you can add placeholders (or tags) to your HTML that are replaced by *actual* code defined from your router or controller. In general, tags, for the majority of templating engines, fall within one of two categores-
 
 1. *Variables/Output Tags* - surrounded by double curly brackets `{{ ... }}`, these output the results of a logic tag or a variable to the end user
-1. *Logic Tags* - surrouded by `{% ... %}`, these tags handle programming logic like loops and conditionals
+1. *Logic Tags* - surrouded by `{% ... %}`, these handle programming logic, like loops and conditionals
 
 > Before diving in, grab the basic project structure from [Github](https://github.com/mjhea0/swig-primer/releases/tag/v1), install the dependencies via NPM - `npm install` - and then run the server. Pay attention to where we initialize Swig and set it as the templating language in *app.js*:
 
@@ -23,7 +23,7 @@ Let's start with some basic examples...
 
 ### Basics
 
-First, we can pass variables from our route handlers directly to the templates.
+First, we can pass variables from our route handlers/view functions directly to the templates.
 
 Update the *index.html* file:
 
@@ -48,7 +48,7 @@ app.get('/', function(req, res) {
 });
 ```
 
-Fire up the server and test this out. Try adding another variable to the template.
+Fire up the server and test this out. Nice. **Try adding another variable to the template.**
 
 *index.html*:
 
@@ -162,7 +162,7 @@ app.get('/logic', function(req, res) {
 </html>
 ```
 
-Test out some more examples of [if](http://paularmstrong.github.io/swig/docs/tags/#if), [elif](http://paularmstrong.github.io/swig/docs/tags/#elif), and [else](http://paularmstrong.github.io/swig/docs/tags/#else).
+**Test out some more examples of [if](http://paularmstrong.github.io/swig/docs/tags/#if), [elif](http://paularmstrong.github.io/swig/docs/tags/#elif), and [else](http://paularmstrong.github.io/swig/docs/tags/#else).**
 
 ### Loops
 
@@ -245,7 +245,7 @@ Simply add a filter:
 </html>
 ```
 
-> You could also write a custom filter for this if you needed to do the *same* filter logic a number of times in your code.
+> You could also write a custom filter for this if you needed to do the *same* filtering logic a number of times throughout your application.
 
 There's also a number of [helper methods](http://paularmstrong.github.io/swig/docs/tags/#for) available with loops:
 
@@ -306,11 +306,8 @@ Finally, add a route handler to *app.js*:
 {% endblock %}
 ```
 
-So, the blocks correspond to the block placeholders from the layout file, and since this file extends from the layout, the content defined here is placed in the corresponding placeholders in the layout.
-
+So, the blocks -  `{% block content %}{% endblock %}` correspond to the block placeholders from the layout file, and since this file extends from the layout, the content defined here is placed in the corresponding placeholders in the layout.
 
 ## Conclusion
 
 Check the [documentation](http://paularmstrong.github.io/swig/) for more info. Cheers!
-
-**Need to add -> partials, custom filters, partials, why use swig section!**
